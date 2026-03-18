@@ -1,0 +1,713 @@
+/**
+ * BD Speed Optimizer — Midnight Cyan Admin Theme
+ * All styles scoped to .bdso-wrap
+ */
+
+/* ─── Variables ───────────────────────────────────────────────────── */
+.bdso-wrap {
+    --bdso-bg: #0F1419;
+    --bdso-surface: #1A2332;
+    --bdso-surface-hover: #1E2A3A;
+    --bdso-primary: #00D4FF;
+    --bdso-accent: #7B61FF;
+    --bdso-success: #00E676;
+    --bdso-danger: #FF5252;
+    --bdso-warning: #FFB74D;
+    --bdso-text: #E6EDF3;
+    --bdso-muted: #8B949E;
+    --bdso-border: #21262D;
+    --bdso-gradient: linear-gradient(135deg, #00D4FF, #7B61FF);
+}
+
+/* ─── Base ────────────────────────────────────────────────────────── */
+.bdso-wrap {
+    margin: 0 !important;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    color: var(--bdso-text);
+    background: var(--bdso-bg);
+    min-height: 100vh;
+}
+
+.bdso-wrap *,
+.bdso-wrap *::before,
+.bdso-wrap *::after {
+    box-sizing: border-box;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────── */
+.bdso-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--bdso-border);
+}
+
+.bdso-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.bdso-logo {
+    display: flex;
+    align-items: center;
+}
+
+.bdso-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--bdso-text);
+    line-height: 1.2;
+}
+
+.bdso-accent {
+    background: var(--bdso-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bdso-version {
+    font-size: 11px;
+    color: var(--bdso-muted);
+    background: var(--bdso-surface);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 4px;
+}
+
+.bdso-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.bdso-status-pill.active {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--bdso-success);
+    border: 1px solid rgba(0, 230, 118, 0.3);
+}
+
+.bdso-status-pill.inactive {
+    background: rgba(255, 82, 82, 0.1);
+    color: var(--bdso-danger);
+    border: 1px solid rgba(255, 82, 82, 0.3);
+}
+
+.bdso-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bdso-success);
+    animation: bdso-pulse-anim 2s ease-in-out infinite;
+}
+
+@keyframes bdso-pulse-anim {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0, 230, 118, 0); }
+}
+
+/* ─── Tabs ────────────────────────────────────────────────────────── */
+.bdso-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--bdso-border);
+    padding-bottom: 0;
+}
+
+.bdso-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    color: var(--bdso-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    margin-bottom: -1px;
+}
+
+.bdso-tab:hover {
+    color: var(--bdso-text);
+}
+
+.bdso-tab.active {
+    color: var(--bdso-primary);
+    border-bottom-color: var(--bdso-primary);
+}
+
+.bdso-tab .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* ─── Toast ───────────────────────────────────────────────────────── */
+.bdso-toast {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    z-index: 99999;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    animation: bdso-toast-in 0.3s ease;
+}
+
+.bdso-toast.success {
+    background: var(--bdso-surface);
+    color: var(--bdso-success);
+    border: 1px solid rgba(0, 230, 118, 0.3);
+}
+
+.bdso-toast.error {
+    background: var(--bdso-surface);
+    color: var(--bdso-danger);
+    border: 1px solid rgba(255, 82, 82, 0.3);
+}
+
+@keyframes bdso-toast-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── License Notice ──────────────────────────────────────────────── */
+.bdso-license-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    background: rgba(255, 183, 77, 0.08);
+    border: 1px solid rgba(255, 183, 77, 0.3);
+    border-radius: 10px;
+    margin-bottom: 24px;
+    color: var(--bdso-warning);
+}
+
+.bdso-license-notice .dashicons {
+    margin-top: 2px;
+}
+
+.bdso-license-notice p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: var(--bdso-muted);
+}
+
+.bdso-license-notice a {
+    color: var(--bdso-primary);
+}
+
+/* ─── Cards ───────────────────────────────────────────────────────── */
+.bdso-card {
+    background: var(--bdso-surface);
+    border: 1px solid var(--bdso-border);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.bdso-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--bdso-border);
+}
+
+.bdso-card-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--bdso-text);
+}
+
+.bdso-card-body {
+    padding: 24px;
+}
+
+/* ─── Score Circle ────────────────────────────────────────────────── */
+.bdso-score-circle {
+    position: relative;
+    display: inline-block;
+}
+
+.bdso-score-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--bdso-text);
+    line-height: 1;
+}
+
+.bdso-score-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 60%);
+    font-size: 12px;
+    color: var(--bdso-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.bdso-score-card {
+    background: var(--bdso-surface);
+    border: 1px solid var(--bdso-border);
+}
+
+/* Score color states */
+.bdso-score-red #bdso-score-ring { stroke: var(--bdso-danger); }
+.bdso-score-amber #bdso-score-ring { stroke: var(--bdso-warning); }
+.bdso-score-green #bdso-score-ring { stroke: url(#bdso-gradient); }
+
+/* ─── Checklist ───────────────────────────────────────────────────── */
+.bdso-checklist {
+    /* Container for check items */
+}
+
+.bdso-check-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--bdso-border);
+    transition: background 0.15s;
+}
+
+.bdso-check-item:last-child {
+    border-bottom: none;
+}
+
+.bdso-check-item:hover {
+    background: rgba(0, 212, 255, 0.03);
+}
+
+.bdso-check-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.bdso-check-icon.pass {
+    background: rgba(0, 230, 118, 0.12);
+    color: var(--bdso-success);
+}
+
+.bdso-check-icon.fail {
+    background: rgba(255, 82, 82, 0.12);
+    color: var(--bdso-danger);
+}
+
+.bdso-check-icon.warning {
+    background: rgba(255, 183, 77, 0.12);
+    color: var(--bdso-warning);
+}
+
+.bdso-check-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.bdso-check-info strong {
+    display: block;
+    font-size: 13px;
+    color: var(--bdso-text);
+    margin-bottom: 2px;
+}
+
+.bdso-check-info span {
+    font-size: 12px;
+    color: var(--bdso-muted);
+}
+
+.bdso-check-weight {
+    font-size: 11px;
+    color: var(--bdso-muted);
+    padding: 3px 8px;
+    background: var(--bdso-bg);
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* ─── DB Cleanup Actions ─────────────────────────────────────────── */
+.bdso-db-actions {
+    border-top: 1px solid var(--bdso-border);
+    padding: 8px 0;
+}
+
+.bdso-db-action-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--bdso-border);
+}
+
+.bdso-db-action-row:last-child {
+    border-bottom: none;
+}
+
+.bdso-db-action-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bdso-db-action-info strong {
+    font-size: 13px;
+    color: var(--bdso-text);
+}
+
+.bdso-db-count {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 10px;
+    background: rgba(255, 82, 82, 0.1);
+    color: var(--bdso-danger);
+}
+
+.bdso-db-count.clean {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--bdso-success);
+}
+
+/* ─── Table ───────────────────────────────────────────────────────── */
+.bdso-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bdso-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bdso-muted);
+    border-bottom: 1px solid var(--bdso-border);
+}
+
+.bdso-table td {
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--bdso-text);
+    border-bottom: 1px solid var(--bdso-border);
+}
+
+.bdso-table tr:last-child td {
+    border-bottom: none;
+}
+
+.bdso-table tr:hover td {
+    background: rgba(0, 212, 255, 0.03);
+}
+
+/* ─── Badges ──────────────────────────────────────────────────────── */
+.bdso-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.bdso-badge-success {
+    background: rgba(0, 230, 118, 0.12);
+    color: var(--bdso-success);
+}
+
+.bdso-badge-danger {
+    background: rgba(255, 82, 82, 0.12);
+    color: var(--bdso-danger);
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────── */
+.bdso-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.bdso-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.bdso-btn-primary {
+    background: var(--bdso-gradient);
+    color: #000;
+}
+
+.bdso-btn-primary:hover:not(:disabled) {
+    opacity: 0.9;
+    box-shadow: 0 2px 12px rgba(0, 212, 255, 0.3);
+}
+
+.bdso-btn-danger {
+    background: rgba(255, 82, 82, 0.15);
+    color: var(--bdso-danger);
+    border: 1px solid rgba(255, 82, 82, 0.3);
+}
+
+.bdso-btn-danger:hover:not(:disabled) {
+    background: rgba(255, 82, 82, 0.25);
+}
+
+.bdso-btn-ghost {
+    background: transparent;
+    color: var(--bdso-muted);
+    border: 1px solid var(--bdso-border);
+}
+
+.bdso-btn-ghost:hover:not(:disabled) {
+    color: var(--bdso-primary);
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.bdso-btn-sm {
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+.bdso-btn-lg {
+    padding: 12px 28px;
+    font-size: 14px;
+}
+
+.bdso-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* ─── Form Elements ───────────────────────────────────────────────── */
+.bdso-input,
+.bdso-select {
+    background: var(--bdso-bg);
+    border: 1px solid var(--bdso-border);
+    color: var(--bdso-text);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: border-color 0.2s;
+    width: 100%;
+    max-width: 400px;
+}
+
+.bdso-input:focus,
+.bdso-select:focus {
+    outline: none;
+    border-color: var(--bdso-primary);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.1);
+}
+
+textarea.bdso-input {
+    resize: vertical;
+}
+
+/* ─── Settings ────────────────────────────────────────────────────── */
+.bdso-setting-row {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--bdso-border);
+}
+
+.bdso-setting-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.bdso-setting-row:first-child {
+    padding-top: 0;
+}
+
+.bdso-setting-desc {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: var(--bdso-muted);
+    line-height: 1.5;
+}
+
+.bdso-setting-desc code {
+    background: var(--bdso-bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+    color: var(--bdso-primary);
+}
+
+/* Toggle */
+.bdso-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.bdso-toggle-label input[type="checkbox"] {
+    display: none;
+}
+
+.bdso-toggle {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    background: var(--bdso-border);
+    border-radius: 11px;
+    transition: background 0.3s;
+    flex-shrink: 0;
+}
+
+.bdso-toggle::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: var(--bdso-muted);
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.bdso-toggle-label input:checked + .bdso-toggle {
+    background: var(--bdso-primary);
+}
+
+.bdso-toggle-label input:checked + .bdso-toggle::after {
+    left: 21px;
+    background: #fff;
+}
+
+/* ─── Save Bar ────────────────────────────────────────────────────── */
+.bdso-save-bar {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* ─── License ─────────────────────────────────────────────────────── */
+.bdso-license-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.bdso-license-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--bdso-muted);
+}
+
+.bdso-tier-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bdso-tier-starter {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--bdso-primary);
+}
+
+.bdso-tier-pro {
+    background: rgba(123, 97, 255, 0.1);
+    color: var(--bdso-accent);
+}
+
+.bdso-tier-agency {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(123, 97, 255, 0.15));
+    color: var(--bdso-text);
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────── */
+.bdso-footer {
+    text-align: center;
+    padding: 24px 0 8px;
+    font-size: 12px;
+    color: var(--bdso-muted);
+    border-top: 1px solid var(--bdso-border);
+    margin-top: 16px;
+}
+
+/* ─── Spinner ─────────────────────────────────────────────────────── */
+.bdso-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--bdso-border);
+    border-top-color: var(--bdso-primary);
+    border-radius: 50%;
+    animation: bdso-spin 0.6s linear infinite;
+}
+
+@keyframes bdso-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .bdso-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .bdso-tabs {
+        overflow-x: auto;
+    }
+
+    .bdso-save-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .bdso-db-action-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
